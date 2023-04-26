@@ -1,6 +1,10 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, Button } from "react-native";
 
 export default function VisualizarContato({navigation,route}){
+  async function excluirBtn(){
+    await AsyncStorage.removeItem("items")
+  }
     
     return (
         <View style={styles.container}>
@@ -67,6 +71,7 @@ export default function VisualizarContato({navigation,route}){
             >
                 <Text
                 style={styles.excluirBtn}
+                onPress={excluirBtn}
                 >
                 Excluir
                 </Text>
